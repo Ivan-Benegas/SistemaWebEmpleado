@@ -4,6 +4,12 @@
     ViewData["Title"] = "Index Empleado";
 }
 
+@section SideBar{
+    <ul>
+        <p>Administracion de empleados</p>
+    </ul>
+}
+
 @Html.ActionLink("Nuevo", "Create", "Empleado")
 <br>
 <table>
@@ -15,7 +21,9 @@
         <th>@Html.DisplayNameFor(model => model.Legajo)</th>
         <th>@Html.DisplayNameFor(model => model.FechaNacimiento)</th>
         <th>@Html.DisplayNameFor(model => model.Titulo)</th>
-        <th>Opciones</th>
+        <th>Detalle</th>
+        <th>Editar</th>
+        <th>Eliminar</th>
 
     </tr>
     @foreach (var item in Model)
@@ -40,11 +48,15 @@
                 @Html.DisplayFor(modelItem => item.FechaNacimiento)
             </td>
             <td>
-                @Html.ActionLink(item.Titulo, "Edit", "Empleado", new{id=item.Id})
+                @Html.ActionLink(item.Titulo, "GetByTitulo", "Empleado", new{titulo=item.Titulo})
+            </td>
+            <td>
+                @Html.ActionLink("Detalle", "Details", "Empleado", new{id=item.Id})
             </td>
             <td>
                 @Html.ActionLink("Editar", "Edit", "Empleado", new{id=item.Id})
-                @Html.ActionLink("Detalle", "Details", "Empleado", new{id=item.Id})
+            </td>
+            <td>
                 @Html.ActionLink("Eliminar", "Delete", "Empleado", new{id=item.Id})
             </td>
         </tr>

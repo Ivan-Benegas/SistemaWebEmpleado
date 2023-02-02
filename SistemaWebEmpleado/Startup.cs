@@ -26,6 +26,8 @@ namespace SistemaWebEmpleado
         {
             services.AddDbContext<DBEmpleadosContext>(options => options.UseSqlServer(Configuration.GetConnectionString("KeyDB")));
 
+            services.AddControllersWithViews().AddRazorRuntimeCompilation();
+
             services.AddControllersWithViews();
         }
 

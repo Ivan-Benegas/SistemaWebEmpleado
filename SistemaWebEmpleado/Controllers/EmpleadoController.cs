@@ -24,15 +24,6 @@ namespace SistemaWebEmpleado.Controllers
             return View(empleados);
         }
 
-        [HttpGet]
-        public ActionResult GetById(int id)
-        {
-            var empleado = TraerUno(id);
-
-            return View(empleado);
-
-        }
-
 
         [HttpGet]
         public ActionResult GetByTitulo(string titulo)
@@ -41,7 +32,7 @@ namespace SistemaWebEmpleado.Controllers
                                   where a.Titulo == titulo
                                   select a).ToList();
 
-            return View(empleados);
+            return View("Index", empleados);
 
         }
 

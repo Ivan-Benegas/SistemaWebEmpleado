@@ -1,13 +1,58 @@
-﻿<!DOCTYPE html>
+﻿@model SistemaWebEmpleado.Models.Empleado
 
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>@ViewBag.Title</title>
-</head>
-<body>
-    <div>
-        @RenderBody()
-    </div>
-</body>
-</html>
+@{
+    ViewData["Title"] = "Edit";
+}
+
+@section SideBar{
+    <ul>
+        <p>Administracion de empleados</p>
+    </ul>
+}
+
+<h1>Editar Empleado</h1>
+<br>
+
+@using (Html.BeginForm("Edit", "Empleado", FormMethod.Post))
+{
+    <p>
+        @Html.LabelFor(model => model.Nombre)
+        @Html.TextBoxFor(model => model.Nombre)
+        @Html.ValidationMessageFor(model => model.Nombre)
+    </p>
+    <br>
+    <p>
+        @Html.LabelFor(model => model.Apellido)
+        @Html.TextBoxFor(model => model.Apellido)
+        @Html.ValidationMessageFor(model => model.Apellido)
+    </p>
+    <br>
+    <p>
+        @Html.LabelFor(model => model.DNI)
+        @Html.TextBoxFor(model => model.DNI)
+        @Html.ValidationMessageFor(model => model.DNI)
+    </p>
+    <br>
+    <p>
+        @Html.LabelFor(model => model.Legajo)
+        @Html.TextBoxFor(model => model.Legajo)
+        @Html.ValidationMessageFor(model => model.Legajo)
+    </p>
+    <br>
+    <p>
+        @Html.LabelFor(model => model.FechaNacimiento)
+        @Html.TextBoxFor(model => model.FechaNacimiento)
+        @Html.ValidationMessageFor(model => model.FechaNacimiento)
+    </p>
+    <br>
+    <p>
+        @Html.LabelFor(model => model.Titulo)
+        @Html.TextBoxFor(model => model.Titulo)
+        @Html.ValidationMessageFor(model => model.Titulo)
+    </p>
+    <br>
+
+    <input type="submit" action="Edit" />
+
+    @Html.ActionLink("Volver a Index", "Index", "Empleado")
+}

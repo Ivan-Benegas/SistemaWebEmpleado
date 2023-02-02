@@ -20,7 +20,7 @@ namespace SistemaWebEmpleado.Models
         public int DNI { get; set; }
 
         [Required]
-        [RegularExpression(@"[A]{2}[0-9]{5}")]
+        [RegularExpression(@"[A-Z]{2}[0-9]{5}")]
         public string Legajo { get; set; }
 
         [FechaDeNacimientoAño2000EnAdelante]
